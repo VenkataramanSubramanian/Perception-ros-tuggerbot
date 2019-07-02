@@ -1,0 +1,8 @@
+prefix=/home/venkat/Documents/projects/Perception-ros-tuggerbot/devel
+
+Name: yolo_depth_perception
+Description: Description of yolo_depth_perception
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/venkat/Documents/projects/Perception-ros-tuggerbot/devel/lib 
+Requires: 
