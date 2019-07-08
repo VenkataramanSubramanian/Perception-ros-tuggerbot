@@ -127,6 +127,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/venkat/Documents/projects/Perception-ros-tuggerbot/build/gtest/cmake_install.cmake")
   include("/home/venkat/Documents/projects/Perception-ros-tuggerbot/build/perception/yolact_depth_perception/cmake_install.cmake")
+  include("/home/venkat/Documents/projects/Perception-ros-tuggerbot/build/perception/yolact_depth_perception_python27/cmake_install.cmake")
   include("/home/venkat/Documents/projects/Perception-ros-tuggerbot/build/perception/yolo_depth_perception/cmake_install.cmake")
 
 endif()

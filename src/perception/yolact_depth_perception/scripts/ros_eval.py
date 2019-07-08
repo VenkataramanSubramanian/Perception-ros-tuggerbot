@@ -21,17 +21,14 @@ class YolactObjectDetection():
 
     def object_detection_callback(self,msg_rgb):
         with torch.no_grad():
-            np_image=cv2.imread('/home/venkat/hockey_660_080212045524.jpg')
-            self.colorImage=eval.evaluate(np_image)
-        #self.imageOutput.publish(CvBridge().cv2_to_imgmsg(self.colorImage, msg_rgb.encoding))
-        cv2.imshow('image',self.colorImage)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+            self.colorImage=eval.evaluate(self.colorImage)
+        self.imageOutput.publish(CvBridge().cv2_to_imgmsg(self.colorImage, msg_rgb.encoding))
+
 
 
 if __name__ == "__main__":
     rospy.init_node('Instance_Segmentation')
     frame=YolactObjectDetection()
-    #imagedepthInput = rospy.Subscriber('/camera/aligned_depth_to_color/image_raw', Image, frame.depth_value_callback)
+    imagedepthInput = rospy.Subscriber('/camera/aligned_depth_to_color/image_raw', Image, frame.depth_value_callback)
     imagergbInput = rospy.Subscriber('/camera/color/image_raw', Image, frame.object_detection_callback)    
     rospy.spin()

@@ -6,4 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(perception/yolact_depth_perception)
+subdirs(perception/yolact_depth_perception_python27)
 subdirs(perception/yolo_depth_perception)

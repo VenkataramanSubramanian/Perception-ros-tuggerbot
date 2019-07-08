@@ -1,0 +1,8 @@
+prefix=/home/venkat/Documents/projects/Perception-ros-tuggerbot/install
+
+Name: yolact_depth_perception_python27
+Description: Description of yolact_depth_perception_python27
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/venkat/Documents/projects/Perception-ros-tuggerbot/install/lib 
+Requires: 
