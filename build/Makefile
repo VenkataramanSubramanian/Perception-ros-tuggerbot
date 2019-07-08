@@ -292,7 +292,7 @@ _catkin_empty_exported_target: cmake_check_build_system
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	$(MAKE) -f perception/yolo_depth_perception/CMakeFiles/_catkin_empty_exported_target.dir/build.make perception/yolo_depth_perception/CMakeFiles/_catkin_empty_exported_target.dir/build
+	$(MAKE) -f perception/yolact_depth_perception/CMakeFiles/_catkin_empty_exported_target.dir/build.make perception/yolact_depth_perception/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 # Help Target

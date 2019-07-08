@@ -10,7 +10,7 @@ class YoloObjectDetection():
 
     def __init__(self):
         self.cvImage=None
-        self.colorImage=None
+        self.colorImage =None
         self.imageOutput=rospy.Publisher('/camera/depth_color_data/image_raw',Image, queue_size=1)
        
 

@@ -15,7 +15,7 @@ def sample(probs):
     r = random.uniform(0, 1)
     for i in range(len(probs)):
         r = r - probs[i]
-        if r <= 0:
+        if r <= 0:  
             return i
     return len(probs)-1
 

@@ -1,2 +1,2 @@
-perception/yolo_depth_perception
+perception/yolact_depth_perception:perception/yolo_depth_perception
 -DCATKIN_DEVEL_PREFIX=/home/venkat/Documents/projects/Perception-ros-tuggerbot/devel -DCMAKE_INSTALL_PREFIX=/home/venkat/Documents/projects/Perception-ros-tuggerbot/install -G Unix Makefiles
