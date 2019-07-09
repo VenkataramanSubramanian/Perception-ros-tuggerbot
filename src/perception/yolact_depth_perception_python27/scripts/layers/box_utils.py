@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import division
 import torch
 from utils import timer
 
@@ -52,7 +53,7 @@ def intersect(box_a, box_b):
     return inter[:, :, :, 0] * inter[:, :, :, 1]
 
 
-def jaccard(box_a, box_b, iscrowd:bool=False):
+def jaccard(box_a, box_b, iscrowd=False):
     """Compute the jaccard overlap of two sets of boxes.  The jaccard overlap
     is simply the intersection over union of two boxes.  Here we operate on
     ground truth boxes and default boxes. If iscrowd=True, put the crowd in box_b.
@@ -108,9 +109,6 @@ def change(gt, priors):
     diff[:, :, 3] /= gt_h
 
     return -torch.sqrt( (diff ** 2).sum(dim=2) )
-
-
-
 
 def match(pos_thresh, neg_thresh, truths, priors, labels, crowd_boxes, loc_t, conf_t, idx_t, idx, loc_data):
     """Match each prior box with the ground truth box of the highest jaccard
@@ -171,8 +169,7 @@ def match(pos_thresh, neg_thresh, truths, priors, labels, crowd_boxes, loc_t, co
     conf_t[idx] = conf   # [num_priors] top class label for each prior
     idx_t[idx]  = best_truth_idx # [num_priors] indices for lookup
 
-@torch.jit.script
-def encode(matched, priors, use_yolo_regressors:bool=False):
+def encode(matched, priors, use_yolo_regressors=False):
     """
     Encode bboxes matched with each prior into the format
     produced by the network. See decode for more details on
@@ -209,8 +206,7 @@ def encode(matched, priors, use_yolo_regressors:bool=False):
         
     return loc
 
-@torch.jit.script
-def decode(loc, priors, use_yolo_regressors:bool=False):
+def decode(loc, priors, use_yolo_regressors=False):
     """
     Decode predicted bbox coordinates using the same scheme
     employed by Yolov2: https://arxiv.org/pdf/1612.08242.pdf
@@ -269,8 +265,7 @@ def log_sum_exp(x):
     return torch.log(torch.sum(torch.exp(x-x_max), 1)) + x_max
 
 
-@torch.jit.script
-def sanitize_coordinates(_x1, _x2, img_size:int, padding:int=0, cast:bool=True):
+def sanitize_coordinates(_x1, _x2, img_size, padding=0, cast=True):
     """
     Sanitizes the input coordinates so that x1 < x2, x1 != x2, x1 >= 0, and x2 <= image_size.
     Also converts from relative to absolute coordinates and casts the results to long tensors.
@@ -291,8 +286,7 @@ def sanitize_coordinates(_x1, _x2, img_size:int, padding:int=0, cast:bool=True):
     return x1, x2
 
 
-@torch.jit.script
-def crop(masks, boxes, padding:int=1):
+def crop(masks, boxes, padding=1):
     """
     "Crop" predicted masks by zeroing out everything not in the predicted bbox.
     Vectorized by Chong (thanks Chong).

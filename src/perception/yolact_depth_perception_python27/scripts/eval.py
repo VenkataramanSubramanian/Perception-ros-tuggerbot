@@ -30,7 +30,7 @@ from PIL import Image
 from multiprocessing.pool import ThreadPool
 from queue import Queue
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import cv2
 
 color_cache = defaultdict(lambda: {})

@@ -106,7 +106,7 @@ class Detect(object):
 
         return {'box': boxes, 'mask': masks, 'class': classes, 'score': scores}
     
-
+    '''
     def coefficient_nms(self, coeffs, scores, cos_threshold=0.9, top_k=400):
         _, idx = scores.sort(0, descending=True)
         idx = idx[:top_k]
@@ -132,8 +132,8 @@ class Detect(object):
         # print(new_mask_norm[:5] @ new_mask_norm[:5].t())
         
         return idx_out, idx_out.size(0)
-
-    def fast_nms(self, boxes, masks, scores, iou_threshold:float=0.5, top_k:int=200, second_threshold:bool=False):
+    '''
+    def fast_nms(self, boxes, masks, scores, iou_threshold, top_k=200, second_threshold=False):
         scores, idx = scores.sort(1, descending=True)
 
         idx = idx[:, :top_k].contiguous()

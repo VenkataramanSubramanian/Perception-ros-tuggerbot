@@ -95,7 +95,7 @@ class Config(object):
         for key, val in new_config_dict.items():
             self.__setattr__(key, val)
     
-    def print(self):
+    def print1(self):
         for k, v in vars(self).items():
             print(k, ' = ', v)
 
@@ -667,7 +667,7 @@ yolact_resnet50_config = yolact_base_config.copy({
 # Default config
 cfg = yolact_base_config.copy()
 
-def set_cfg(config_name:str):
+def set_cfg(config_name):
     """ Sets the active config. Works even if cfg is already imported! """
     global cfg
 
@@ -675,7 +675,7 @@ def set_cfg(config_name:str):
     # be used like ssd300_config.copy({'max_size': 400}) for extreme fine-tuning
     cfg.replace(eval(config_name))
 
-def set_dataset(dataset_name:str):
+def set_dataset(dataset_name):
     """ Sets the dataset of the current config. """
     cfg.dataset = eval(dataset_name)
     

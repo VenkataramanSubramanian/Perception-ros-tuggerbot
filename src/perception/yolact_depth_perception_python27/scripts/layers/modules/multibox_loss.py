@@ -403,7 +403,7 @@ class MultiBoxLoss(nn.Module):
 
         return loss_m
     
-
+    '''
     def coeff_diversity_loss(self, coeffs, instance_t):
         """
         coeffs     should be size [num_pos, num_coeffs]
@@ -426,8 +426,8 @@ class MultiBoxLoss(nn.Module):
         # Only divide by num_pos once because we're summing over a num_pos x num_pos tensor
         # and all the losses will be divided by num_pos at the end, so just one extra time.
         return cfg.mask_proto_coeff_diversity_alpha * loss.sum() / num_pos
-
-
+    '''
+    '''
     def lincomb_mask_loss(self, pos, idx_t, loc_data, mask_data, priors, proto_data, masks, gt_box_t, inst_data, interpolation_mode='bilinear'):
         mask_h = proto_data.size(1)
         mask_w = proto_data.size(2)
@@ -553,3 +553,4 @@ class MultiBoxLoss(nn.Module):
             losses['D'] = loss_d
 
         return losses
+    '''

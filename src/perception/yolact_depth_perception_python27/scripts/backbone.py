@@ -1,3 +1,4 @@
+from builtins import super
 import torch
 import torch.nn as nn
 import pickle
@@ -211,7 +212,7 @@ def darknetconvlayer(in_channels, out_channels, *args, **kwdargs):
     Arguments are passed into the conv layer.
     """
     return nn.Sequential(
-        nn.Conv2d(in_channels, out_channels, *args, **kwdargs, bias=False),
+        nn.Conv2d(in_channels, out_channels, bias=False, *args, **kwdargs),
         nn.BatchNorm2d(out_channels),
         # Darknet uses 0.1 here.
         # See https://github.com/pjreddie/darknet/blob/680d3bde1924c8ee2d1c1dea54d3e56a05ca9a26/src/activations.h#L39
