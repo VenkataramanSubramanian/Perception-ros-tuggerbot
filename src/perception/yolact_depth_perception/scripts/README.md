@@ -18,6 +18,12 @@ Here's a look at our current results for our base model (33 fps on a Titan Xp an
 
 ![Example 2](data/yolact_example_2.png)
 
+#My addition
+export PYTHONPATH=/usr/bin/python3:$PYTHONPATH
+source ~/catkin_workspace/devel/setup.bash
+source devel/setup.bash
+rosrun yolact_depth_perception ros_eval.py
+
 # Installation
  - Set up a Python3 environment.
  - Install [Pytorch](http://pytorch.org/) 1.0.1 (or higher) and TorchVision.

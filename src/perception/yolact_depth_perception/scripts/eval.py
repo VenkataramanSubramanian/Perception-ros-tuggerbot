@@ -30,7 +30,7 @@ from PIL import Image
 from multiprocessing.pool import ThreadPool
 from queue import Queue
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import cv2
 
 color_cache = defaultdict(lambda: {})
@@ -191,7 +191,7 @@ model_path = SavePath.from_str("yolact_darknet53_54_800000.pth")
 config = model_path.model_name + '_config'
 print('Config not specified. Parsed %s from the file name.\n' % config)
 set_cfg(config)
-cfg.eval_mask_branch = False
+cfg.eval_mask_branch = True
 cudnn.benchmark = True
 cudnn.fastest = True
 torch.set_default_tensor_type('torch.cuda.FloatTensor')
